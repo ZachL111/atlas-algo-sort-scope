@@ -1,0 +1,73 @@
+{
+  "repo": "atlas-algo-sort-scope",
+  "language": "OCaml",
+  "category": "Algorithms",
+  "goal": "Package an OCaml local lab for sort analysis with node-edge fixtures, cycle and reachability reports, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "input width",
+      "search depth",
+      "boundary pressure",
+      "complexity"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "input width",
+      "signal": 47,
+      "slack": 25,
+      "drag": 31,
+      "confidence": 68,
+      "score": 94,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "search depth",
+      "signal": 74,
+      "slack": 26,
+      "drag": 30,
+      "confidence": 75,
+      "score": 159,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "boundary pressure",
+      "signal": 60,
+      "slack": 40,
+      "drag": 28,
+      "confidence": 65,
+      "score": 141,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "complexity",
+      "signal": 55,
+      "slack": 27,
+      "drag": 25,
+      "confidence": 87,
+      "score": 149,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "input width",
+      "signal": 68,
+      "slack": 24,
+      "drag": 17,
+      "confidence": 80,
+      "score": 189,
+      "lane": "ship"
+    }
+  ]
+}

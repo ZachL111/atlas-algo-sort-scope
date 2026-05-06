@@ -10,3 +10,8 @@ expect (classify signal_case_2 = "accept");;
 let signal_case_3 = { demand = 96; capacity = 100; latency = 24; risk = 12; weight = 8 };;
 expect (score signal_case_3 = 220);;
 expect (classify signal_case_3 = "accept");;
+
+#use "src/review.ml";;
+let domain_review = { signal = 47; slack = 25; drag = 31; confidence = 68 };;
+expect (review_score domain_review = 94);;
+expect (review_lane domain_review = "hold");;
