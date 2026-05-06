@@ -1,0 +1,32 @@
+{
+  "index": 271,
+  "phase": 2,
+  "batch": 31,
+  "name": "atlas-algo-sort-scope",
+  "planned_name": "atlas-algo-sort-scope",
+  "language": "OCaml",
+  "category": "Algorithms",
+  "goal": "Package an OCaml local lab for sort analysis with node-edge fixtures, cycle and reachability reports, and documented operating limits.",
+  "repository_url": "https://github.com/ZachL111/atlas-algo-sort-scope",
+  "verification_command": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify.ps1",
+  "model": {
+    "inputs": [
+      "demand",
+      "capacity",
+      "latency",
+      "risk",
+      "weight"
+    ],
+    "threshold": 150,
+    "risk_penalty": 6,
+    "latency_penalty": 2,
+    "weight_bonus": 6,
+    "decision_rule": "accept when score is greater than or equal to threshold, otherwise review"
+  },
+  "quality_gates": [
+    "readme constraint scan",
+    "fixture presence check",
+    "metadata JSON parse",
+    "language verifier"
+  ]
+}
