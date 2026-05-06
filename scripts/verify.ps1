@@ -58,6 +58,13 @@ foreach ($pathPattern in $knownPaths) {
   }
 }
 
-ocaml tests/test.ml
+ocaml -I src tests/test.ml
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-atlas-algo-sort-detail.ps1
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-atlas-algo-sort-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-atlas-algo-sort-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
